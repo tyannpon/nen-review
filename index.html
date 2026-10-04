@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>九州地域 年金事務所 Googleクチコミ情報</title>
+<title>年金事務所（九州） Googleクチコミ情報</title>
 <style>
   body { font-family: 'Hiragino Sans','Meiryo',sans-serif; background:#f0f4f8; margin:0; padding:30px; color:#333; }
   h1 { text-align:center; color:#1a73e8; }
@@ -19,26 +19,31 @@
 </style>
 </head>
 <body>
-<h1>🏢 九州地域部 年金事務所 Googleクチコミ情報</h1>
+<h1>🏢 年金事務所（九州） Googleクチコミ情報</h1>
+<p style="text-align:center;font-size:1.5em;color:#0f3460;margin:10px 0 0;">（結果が複数ある場合先頭のみ反映）</p>
 
 <h2>都道府県の平均</h2>
-<table>
-  <tr><th>都道府県</th><th>平均評価</th></tr>
-  <tr><td>福岡県</td><td>3.1</td></tr>
-  <tr><td>佐賀県</td><td>3.3</td></tr>
-  <tr><td>長崎県</td><td>2.9</td></tr>
-  <tr><td>熊本県</td><td>3.0</td></tr>
-  <tr><td>大分県</td><td>3.6</td></tr>
-  <tr><td>宮崎県</td><td>3.4</td></tr>
-  <tr><td>鹿児島県</td><td>3.7</td></tr>
-  <tr><td>沖縄県</td><td>3.7</td></tr>
-  <tr style="background:#eef4ff;font-weight:bold"><td>九州</td><td>3.3</td></tr>
+<table id="prefTable">
+  <thead>
+  <tr><th data-col="0">都道府県</th><th data-col="1">順位</th><th data-col="2">平均評価</th><th data-col="3">クチコミ数</th><th data-col="4">総人口</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>福岡県</td><td data-v="6">6位</td><td data-v="3.1">3.1</td><td data-v="844">844件</td><td data-v="5135214">5,135,214人</td></tr>
+  <tr><td>佐賀県</td><td data-v="5">5位</td><td data-v="3.3">3.3</td><td data-v="47">47件</td><td data-v="811442">811,442人</td></tr>
+  <tr><td>長崎県</td><td data-v="8">8位</td><td data-v="2.9">2.9</td><td data-v="117">117件</td><td data-v="1312317">1,312,317人</td></tr>
+  <tr><td>熊本県</td><td data-v="7">7位</td><td data-v="3.0">3.0</td><td data-v="126">126件</td><td data-v="1738301">1,738,301人</td></tr>
+  <tr><td>大分県</td><td data-v="3">3位</td><td data-v="3.6">3.6</td><td data-v="137">137件</td><td data-v="1123852">1,123,852人</td></tr>
+  <tr><td>宮崎県</td><td data-v="4">4位</td><td data-v="3.4">3.4</td><td data-v="60">60件</td><td data-v="1069576">1,069,576人</td></tr>
+  <tr><td>鹿児島県</td><td data-v="1">1位</td><td data-v="3.7">3.7</td><td data-v="83">83件</td><td data-v="1588256">1,588,256人</td></tr>
+  <tr><td>沖縄県</td><td data-v="1">1位</td><td data-v="3.7">3.7</td><td data-v="111">111件</td><td data-v="1467480">1,467,480人</td></tr>
+  <tr style="background:#eef4ff;font-weight:bold"><td>九州</td><td>－</td><td data-v="3.3">3.3</td><td data-v="1525">1525件</td><td data-v="14246438">14,246,438人</td></tr>
+  </tbody>
 </table>
 
-<h2>事務所一覧</h2>
+<h2>事務所一覧（クリックで並び替え）</h2>
 <table id="officeTable">
   <thead>
-  <tr><th data-col="0">地域部</th><th data-col="1">都道府県</th><th data-col="2">事務所名</th><th data-col="3">順位</th><th data-col="4">平均評価</th><th data-col="5">クチコミ</th><th data-col="6">WEB</th></tr>
+  <tr><th data-col="0">地域</th><th data-col="1">都道府県</th><th data-col="2">事務所名</th><th data-col="3">順位</th><th data-col="4">平均評価</th><th data-col="5">クチコミ数</th><th data-col="6">WEB</th></tr>
   </thead>
   <tbody>
   <tr><td>九州</td><td>福岡県</td><td>大牟田</td><td data-v="27">27位</td><td data-v="3.0">3.0</td><td data-v="33">33件</td><td><a class="btn" href="https://maps.google.com/?cid=17904548780034702189" target="_blank">WEB</a></td></tr>
@@ -89,28 +94,36 @@
 <p class="note">※2026年10月4日取得。評価・件数はGoogle Places APIから取得(長崎南のみWEBから取得)。順位・平均評価・クチコミはクリックで昇順/降順に並べ替え可能。</p>
 
 <script>
-  const table = document.getElementById('officeTable');
-  const tbody = table.querySelector('tbody');
-  const headers = table.querySelectorAll('th');
-  let sortCol = -1, asc = true;
-  headers.forEach(th => {
-    th.addEventListener('click', () => {
-      const col = +th.dataset.col;
-      if (col === 6) return; // WEB列はソートしない
-      asc = (sortCol === col) ? !asc : true;
-      sortCol = col;
-      const rows = [...tbody.rows];
-      rows.sort((a, b) => {
-        const av = a.cells[col].dataset.v !== undefined ? parseFloat(a.cells[col].dataset.v) : a.cells[col].textContent;
-        const bv = b.cells[col].dataset.v !== undefined ? parseFloat(b.cells[col].dataset.v) : b.cells[col].textContent;
-        if (typeof av === 'number' && typeof bv === 'number') return asc ? av - bv : bv - av;
-        return asc ? String(av).localeCompare(String(bv), 'ja') : String(bv).localeCompare(String(av), 'ja');
+  function setupSort(tableId) {
+    const table = document.getElementById(tableId);
+    if (!table) return;
+    const tbody = table.querySelector('tbody');
+    const headers = table.querySelectorAll('th');
+    let sortCol = -1, asc = true;
+    headers.forEach(th => {
+      th.addEventListener('click', () => {
+        const col = +th.dataset.col;
+        if (tableId === 'officeTable' && col === 6) return; // WEB列はソートしない
+        asc = (sortCol === col) ? !asc : true;
+        sortCol = col;
+        const rows = [...tbody.rows];
+        rows.sort((a, b) => {
+          const av = a.cells[col].dataset.v !== undefined ? a.cells[col].dataset.v : a.cells[col].textContent;
+          const bv = b.cells[col].dataset.v !== undefined ? b.cells[col].dataset.v : b.cells[col].textContent;
+          const nav = parseFloat(av), nbv = parseFloat(bv);
+          if (!isNaN(nav) && !isNaN(nbv)) return asc ? nav - nbv : nbv - nav;
+          return asc ? String(av).localeCompare(String(bv), 'ja') : String(bv).localeCompare(String(av), 'ja');
+        });
+        const totalRow = tableId === 'prefTable' ? rows.pop() : null; // 九州合計行は最下部固定
+        rows.forEach(r => tbody.appendChild(r));
+        if (totalRow) tbody.appendChild(totalRow);
+        headers.forEach(h => h.textContent = h.textContent.replace(/[▲▼]/g, ''));
+        th.textContent = th.textContent + (asc ? ' ▲' : ' ▼');
       });
-      rows.forEach(r => tbody.appendChild(r));
-      headers.forEach(h => h.textContent = h.textContent.replace(/[▲▼]/g, ''));
-      th.textContent = th.textContent + (asc ? ' ▲' : ' ▼');
     });
-  });
+  }
+  setupSort('officeTable');
+  setupSort('prefTable');
 </script>
 </body>
 </html>
